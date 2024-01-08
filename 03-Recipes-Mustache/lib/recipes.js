@@ -24,3 +24,14 @@ const recipes = [
 ]
 
 // TODO: Your code goes below:
+const template = document.querySelector('.recipesTemplate').innerHTML
+const container = document.querySelector('#recipesContainer')
+
+recipes.forEach( recipe => {
+  const output = Mustache.render(template, {
+    name: recipe.name,
+    ingredients: recipe.ingredients,
+    difficulty: recipe.difficulty
+  });
+  container.insertAdjacentHTML('beforeend', output)
+});
