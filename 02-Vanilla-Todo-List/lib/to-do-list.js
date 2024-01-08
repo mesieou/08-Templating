@@ -5,4 +5,15 @@ const todos = [
   { title: "Water the plants", done: true }
 ];
 
-// TODO: Use the template in the `index.html` to dynamically generate a list based on `todos` array
+const template = document.querySelector("#todoItemTemplate");
+const todosContainer = document.querySelector("#todosContainer");
+
+
+todos.forEach(todo => {
+  const clone = template.content.cloneNode(true);
+  clone.querySelector('.title').textContent = todo.title;
+  if (todo.done) {
+    clone.querySelector('input').setAttribute('checked', 'checked');
+  }
+  todosContainer.appendChild(clone);
+});
