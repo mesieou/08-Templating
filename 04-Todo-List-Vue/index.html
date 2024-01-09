@@ -24,10 +24,13 @@
     <div class="col-lg-4 bg-white rounded shadow-sm p-5">
      <h1 class="mb-3">🗒 My Todo List</h1>
      <div id="app">
-      <div v-for="todo in todos" v-cloak>
+      <div v-for="(todo, index) in todos" v-cloak>
         <div class="shadow-sm rounded px-4 py-3 mb-2 border d-flex">
           <input class="d-flex form-check-input me-1" type="checkbox" :checked="todo.done">
-          <div class="title"> {{ todo.title }}</div>
+          <div class="d-flex flex-grow-1">
+            <div class="title"> {{ todo.title }}</div>
+            <div @click="removeTodo(index)" class="delete-button ms-auto">✖️</div>
+          </div>
         </div>
       </div>
       <div class="d-flex mt-4">
