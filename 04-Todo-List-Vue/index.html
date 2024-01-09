@@ -23,8 +23,17 @@
   <div class="row justify-content-center mt-4">
     <div class="col-lg-4 bg-white rounded shadow-sm p-5">
      <h1 class="mb-3">🗒 My Todo List</h1>
-     <div id="todosContainer">
-       {{message}}
+
+
+
+     <div id="app">
+      <div v-for="todo in todos">
+        <div class="shadow-sm rounded px-4 py-3 mb-2 border d-flex">
+          <input class="d-flex form-check-input me-1" type="checkbox" :checked="todo.done">
+          <div class="title"> {{ todo.title }}</div>
+        </div>
+      </div>
+
        <!-- Your code goes here -->
      </div>
    </div>
