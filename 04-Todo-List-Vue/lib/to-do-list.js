@@ -10,7 +10,15 @@ const todos = [
 createApp({
   data() {
     return {
-      todos: todos
+      todos: todos,
+      newTodo: null
+    }
+  },
+  methods: {
+    addTodo() {
+      console.log("Adding a todo...")
+      this.todos.push({title: this.newTodo, done: false})
+      this.newTodo = '';
     }
   }
 }).mount('#app');
