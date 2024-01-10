@@ -14,7 +14,6 @@ const App = () => {
   }
 
   const addTodo = () => {
-    console.log(newTodo);
     changeTodos([...todos, newTodo])
     setNewTodo({ title: '' , done: false })
   }
@@ -28,7 +27,8 @@ const App = () => {
       const updatedTodos = [...prevTodos];
       updatedTodos[index].done = !updatedTodos[index].done;
       return updatedTodos;
-    });  }
+    });
+  }
 
   return (
     <div id="app">
