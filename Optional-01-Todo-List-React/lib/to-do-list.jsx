@@ -19,14 +19,25 @@ const App = () => {
     setNewTodo({ title: '' , done: false })
   }
 
+  const removeTodo = (index) => {
+    changeTodos(todos.filter((todo, i) => i !== index))
+  }
+
+  const handleCheckbox = (index) => {
+    changeTodos((prevTodos) => {
+      const updatedTodos = [...prevTodos];
+      updatedTodos[index].done = !updatedTodos[index].done;
+      return updatedTodos;
+    });  }
+
   return (
     <div id="app">
     {todos.map((todo, index) => (
       <div class="shadow-sm rounded px-4 py-3 mb-2 border d-flex">
-        <input class="d-flex form-chech-input me-1" type="checkbox" checked={todo.done}/>
+        <input class="d-flex form-check-input me-1" type="checkbox" checked={todo.done} onChange={() => handleCheckbox(index)} />
         <div class="d-flex flex-grow-1">
             <div key={index}>{todo.title}</div>
-            <div class="ms-auto">✖️</div>
+            <div onClick={() => removeTodo(index)} class="ms-auto">✖️</div>
         </div>
       </div>
     ))}
